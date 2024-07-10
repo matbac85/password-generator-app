@@ -1,29 +1,47 @@
-# password-generator-app
+## Password Generator App
 
-This template should help get you started developing with Vue 3 in Vite.
+![Password Generator App](preview.jpg)
 
-## Recommended IDE Setup
+### Application Description
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+This application generates secure passwords based on user-defined criteria such as length and character types. It includes features for dynamically displaying password strength and copying generated passwords to the clipboard.
 
-## Customize configuration
+#### Try It Out
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Explore the app live [here](https://matbac85.github.io/password-generator-app/).
 
-## Project Setup
+#### Features and Input Options
 
-```sh
-npm install
-```
+1. **Password Length Slider**:
 
-### Compile and Hot-Reload for Development
+   - Users adjust the length of the password using a slider ranging from 1 to 20 characters.
 
-```sh
-npm run dev
-```
+2. **Character Type Selection**:
 
-### Compile and Minify for Production
+   - Checkboxes allow users to include uppercase letters, lowercase letters, numbers, and symbols in their generated passwords.
 
-```sh
-npm run build
-```
+3. **Password Strength Indicator**:
+
+   - Real-time feedback on password strength based on selected criteria (length and character types).
+
+4. **Copy to Clipboard**:
+   - Users can copy generated passwords with a single click for easy use in other applications.
+
+#### Tools Used
+
+- **Vue.js**: JavaScript framework used for building the user interface and managing data reactivity.
+- **Computed Properties and Watchers**: Computed properties are utilized to dynamically calculate password strength and slider values based on user input. Watchers are employed to monitor changes in password generation, ensuring real-time updates in the UI.
+- **HTML/CSS**: Used for structuring and styling the user interface in a responsive and aesthetic manner.
+
+#### Functionality and Reset Option
+
+- **Generate Button**: Clicking generates a new password based on the selected criteria.
+- **Copy Button**: Copies the generated password to the clipboard, with visual confirmation upon successful copy.
+
+#### Credits
+
+This project was completed as a front-end coding challenge from [Frontend Mentor](https://www.frontendmentor.io/).
+
+### Summary
+
+The Password Generator App simplifies the process of creating strong, customized passwords with options for length and character types. It provides instant feedback on password strength and facilitates easy copying for enhanced security and convenience.

@@ -50,7 +50,7 @@ watch(
   () => props.password,
   () => {
     copied.value = false;
-    fadingOut.value = false; // Réinitialiser fadingOut lorsque le mot de passe change
+    fadingOut.value = false;
   }
 );
 </script>
