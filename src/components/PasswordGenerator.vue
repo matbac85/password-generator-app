@@ -196,9 +196,10 @@ label {
   position: relative;
   appearance: none;
   z-index: 0;
+  background-color: transparent;
 }
 
-/* ::before element to replace the slider track */
+/* ::before element to replace the slider track for non-Firefox browsers */
 .custom-slider input[type="range"]::before {
   content: "";
   position: absolute;
@@ -208,20 +209,14 @@ label {
   pointer-events: none;
 }
 
-/* `::-webkit-slider-runnable-track` targets the track (background) of a range slider in chrome and safari browsers. */
+/* Targets the track (background) of a range slider in WebKit browsers (Chrome, Safari) */
 .custom-slider input[type="range"]::-webkit-slider-runnable-track {
   appearance: none;
   background: var(--primary-900);
   height: 0.5rem;
 }
 
-/* `::-moz-range-track` targets the track (background) of a range slider in Mozilla Firefox. */
-.custom-slider input[type="range"]::-moz-range-track {
-  appearance: none;
-  background: var(--secondary);
-  height: 0.5rem;
-}
-
+/* Targets the progress of the range slider in WebKit browsers */
 .custom-slider input[type="range"]::-webkit-slider-thumb {
   position: relative;
   width: 1.75rem;
@@ -236,6 +231,35 @@ label {
 }
 
 .custom-slider input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--primary-900);
+  border: var(--secondary) 2px solid;
+}
+
+/* Targets the track (background) of a range slider in Mozilla Firefox */
+.custom-slider input[type="range"]::-moz-range-track {
+  background: var(--primary-900);
+  height: 0.5rem;
+}
+
+/* Targets the progress of a range slider in Mozilla Firefox */
+.custom-slider input[type="range"]::-moz-range-progress {
+  background: var(--secondary);
+  height: 0.5rem;
+}
+
+/* Style for the thumb of the range slider in Mozilla Firefox */
+.custom-slider input[type="range"]::-moz-range-thumb {
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--primary-100);
+  border-radius: 999px;
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.custom-slider input[type="range"]::-moz-range-thumb:hover {
   background-color: var(--primary-900);
   border: var(--secondary) 2px solid;
 }
