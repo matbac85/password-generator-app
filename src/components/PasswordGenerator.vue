@@ -62,6 +62,7 @@
         :lowercase="lowercase"
         :numbers="numbers"
         :symbols="symbols"
+        :disabled="!isAnyCheckboxChecked"
         @passwordGenerated="updatePassword"
       />
     </form>
@@ -69,7 +70,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import PasswordStrengthIndicator from "./PasswordStrengthIndicator.vue";
 import PasswordDisplay from "./PasswordDisplay.vue";
 import GenerateButton from "./GenerateButton.vue";
@@ -91,6 +92,11 @@ const generatedPassword = ref("");
 function updatePassword(newPassword) {
   generatedPassword.value = newPassword;
 }
+
+// Computed property to check if at least one checkbox is selected
+const isAnyCheckboxChecked = computed(() => {
+  return uppercase.value || lowercase.value || numbers.value || symbols.value;
+});
 
 const getProgress = (value, min, max) => {
   return ((value - min) / (max - min)) * 100;

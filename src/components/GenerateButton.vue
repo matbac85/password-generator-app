@@ -1,5 +1,5 @@
 <template>
-  <button @click.prevent="generatePassword">
+  <button @click.prevent="generatePassword" :disabled="disabled">
     generate
     <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -37,6 +37,7 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  disabled: Boolean,
 });
 
 const password = ref("");
@@ -96,6 +97,16 @@ button:hover {
   background-color: var(--primary-500);
   color: var(--secondary);
   border-color: var(--secondary);
+}
+
+button:disabled {
+  color: var(--primary-300);
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
+
+button:disabled {
+  border: transparent;
 }
 
 @media (min-width: 37.5rem) {
